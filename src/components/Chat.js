@@ -1,4 +1,4 @@
-import React, { useState, Component, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from "axios";
 
 export default function Chat(props) {
@@ -11,12 +11,13 @@ export default function Chat(props) {
             .then(res => {
                 setMensaje(res.data.mensajes);
             });
-
     }
+
     useEffect(() => {
         pedirMensajes();
+        
     })
-
+    
     const enviarMensaje = (e) => {
         e.preventDefault()
         axios({
@@ -33,25 +34,28 @@ export default function Chat(props) {
         const { value } = e.target
         setTexto(value)
     }
-
-
+    //document.getElementById('final').scrollIntoView(true)
     return (
         <>
-            <div className='chat-body'>
+            <div className='messagesBox'>
                 {mensajes.map(msg =>
                     <p key={msg._id}>
                         <label>De:{msg.de}</label><br />
                         <label>Mensaje: {msg.texto}</label><br />
                     ==========================<br />
                     </p>
-                )}
+                )
+                }
+                <span id='final'></span>
             </div>
             <form onSubmit={enviarMensaje}>
                 <input type='text' onChange={handleChange} name='texto' />
                 <button type='submit'>Enviar</button>
             </form>
+            
         </>
     );
+    
 }
 
 

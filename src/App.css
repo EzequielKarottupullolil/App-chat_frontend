@@ -1,5 +1,6 @@
-.chat-body{
+.messagesBox{
   width:628px;
   height:315px;
-  overflow:auto;
+  /* overflow-y:auto; */
+  overflow-y: scroll;
 }
