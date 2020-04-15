@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {useHistory, Link} from "react-router-dom"
+import {Link} from "react-router-dom"
 import axios from "axios";
 const ListChats = (props) => {
     const {handleChat} = props;
