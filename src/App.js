@@ -1,17 +1,26 @@
-import React from 'react';
+import React,{useState} from 'react';
 import './App.css';
+import {BrowserRouter as Router,Route,useHistory} from "react-router-dom";
 import Chat from "./components/Chat";
 import ListChat from "../src/components/ListChats";
 // import axios from "axios";
 function App() {
-
+  const [idChat,setIdChat] = useState("");
   
+  const handleChat = (chat)=>{
+      setIdChat(chat);
+      history.push('/chat')
+  }
   return (
-    <div>
-      <center>
-      <ListChat/>
-      </center>
-    </div>
+
+    <Router>
+      <Route path='/' exact>
+        <ListChat handleChat={handleChat}/>
+      </Route>
+      <Route path='/chat'>
+        <Chat idChat={idChat}/>
+      </Route>
+    </Router>
   );
 }
 
