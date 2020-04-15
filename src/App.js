@@ -7,9 +7,8 @@ import ListChat from "../src/components/ListChats";
 function App() {
   const [idChat,setIdChat] = useState("");
   
-  const handleChat = (chat)=>{
+  const handleChat = (chat,history)=>{
       setIdChat(chat);
-      history.push('/chat')
   }
   return (
 
