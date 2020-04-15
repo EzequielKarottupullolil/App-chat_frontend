@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import {useHistory} from "react-router-dom"
+import {useHistory, Link} from "react-router-dom"
 import axios from "axios";
 const ListChats = (props) => {
     const {handleChat} = props;
-    let history = useHistory();
     const [chats, setChats] = useState([]);
+    const [didMount,setMount] = useState(Boolean);
+
     const pedirChats = () => {
         /*Pide los mensajes y los guarda en un estado */
         axios.get('http://localhost:4000/api/chats')
@@ -13,13 +14,17 @@ const ListChats = (props) => {
             })
     }
     useEffect(() => {
-        pedirChats();
+        if(!didMount){
+            pedirChats();
+            setMount(true);
+            console.log('ok')
+        }
     })
     return (
         <div>
             {chats.map(chat =>
                 <div key={chat._id}>
-                    <button onClick={()=>handleChat(chat._id)}>CHAT</button>
+                    <Link to='/chat' onClick={()=>{handleChat(chat._id)}}>CHAT</Link>
                 </div>)}
             <h1>HOLA</h1>
         </div>
