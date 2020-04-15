@@ -19,7 +19,7 @@ const ListChats = (props) => {
             setMount(true);
             console.log('ok')
         }
-    })
+    },[didMount,setMount])
     return (
         <div>
             {chats.map(chat =>
