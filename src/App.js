@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import Chat from "./components/Chat";
+import ListChat from "../src/components/ListChats";
 // import axios from "axios";
 function App() {
 
@@ -8,7 +9,7 @@ function App() {
   return (
     <div>
       <center>
-      <Chat  />
+      <ListChat/>
       </center>
     </div>
   );

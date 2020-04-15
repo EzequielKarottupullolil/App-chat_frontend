@@ -1,6 +1,15 @@
 .messagesBox{
-  width:628px;
+  width:500px;
   height:315px;
+  border-style: solid;
+  border-color: indigo;
   /* overflow-y:auto; */
   overflow-y: scroll;
+}
+
+.elotro{
+  background-color: red;
+}
+.yo{
+  background-color: blue;
 }

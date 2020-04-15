@@ -15,17 +15,17 @@ export default function Chat(props) {
 
     useEffect(() => {
         pedirMensajes();
-        
+
     })
-    
+
     const enviarMensaje = (e) => {
         e.preventDefault()
         axios({
             method: "post",
             url: "http://localhost:4000/api/mensajes",
             data: {
-                de: "ezequiel",
-                para: "juan",
+                de: "juan",
+                para: "ezequiel",
                 texto: texto,
             }
         })
@@ -39,23 +39,22 @@ export default function Chat(props) {
         <>
             <div className='messagesBox'>
                 {mensajes.map(msg =>
-                    <p key={msg._id}>
-                        <label>De:{msg.de}</label><br />
+                
+                    <div className={msg.de == "ezequiel"? "yo":"elotro" } key={msg._id}>
                         <label>Mensaje: {msg.texto}</label><br />
+                        <label>Fecha: {msg.createdAt}</label><br />
                     ==========================<br />
-                    </p>
-                )
+                    </div>)
                 }
-                <span id='final'></span>
             </div>
             <form onSubmit={enviarMensaje}>
                 <input type='text' onChange={handleChange} name='texto' />
                 <button type='submit'>Enviar</button>
             </form>
-            
+
         </>
     );
-    
+
 }
 
 
