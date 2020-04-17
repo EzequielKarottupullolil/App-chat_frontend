@@ -1,13 +1,14 @@
 import React,{useState} from 'react';
 import './App.css';
-import {BrowserRouter as Router,Route,useHistory} from "react-router-dom";
+import {BrowserRouter as Router,Route} from "react-router-dom";
 import Chat from "./components/Chat";
 import ListChat from "../src/components/ListChats";
 // import axios from "axios";
 function App() {
   const [idChat,setIdChat] = useState("");
   
-  const handleChat = (chat,history)=>{
+  const handleChat = (chat)=>{
+      console.log(chat);
       setIdChat(chat);
   }
   return (
